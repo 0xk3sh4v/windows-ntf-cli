@@ -2,13 +2,6 @@ import ctypes
 import time
 import sys
 
-'''
-TAKEN FROM AN EXISTING PROJECT
-https://github.com/kshvsec/windows-ntf-cli
-
-USED TO TRIGGER CLEAN WINDOWS NOTIFIcATIONS USING COMMAND LINE
-'''
-
 class NOTIFYICONDATA(ctypes.Structure):
     _fields_ = [("cbSize", ctypes.c_uint),
                 ("hWnd", ctypes.c_void_p),
@@ -55,7 +48,7 @@ def show_notification(title, msg, time):
 # show_notification("Notification Title", "This is a desktop notification!", 5) # debug
 
 if __name__ == "__main__":
-    if len(sys.argv) != 3:
+    if len(sys.argv) != 4:
         print(f"Usage: {sys.argv[0]} <title> <message> <time>")
         sys.exit(1)
     
