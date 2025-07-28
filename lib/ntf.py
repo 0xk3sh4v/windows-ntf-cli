@@ -54,5 +54,5 @@ if __name__ == "__main__":
     
     title = sys.argv[1]
     message = sys.argv[2]
-    time = sys.args[3]
+    time = sys.argv[3]
     show_notification(title, message, time)
