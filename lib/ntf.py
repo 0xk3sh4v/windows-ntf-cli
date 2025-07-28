@@ -19,14 +19,10 @@ class NOTIFYICONDATA(ctypes.Structure):
                 ("guidItem", ctypes.c_byte * 16),
                 ("hBalloonIcon", ctypes.c_void_p)]
 
-
-
 NIF_INFO = 0x00000010
 NIIF_INFO = 0x00000001
 NIM_ADD = 0x00000000
 NIM_MODIFY = 0x00000001
-
-
 
 def show_notification(title, msg, time):
     nid = NOTIFYICONDATA()
