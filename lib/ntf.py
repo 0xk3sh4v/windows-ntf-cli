@@ -24,7 +24,7 @@ NIIF_INFO = 0x00000001
 NIM_ADD = 0x00000000
 NIM_MODIFY = 0x00000001
 
-def show_notification(title, msg, time):
+def show_notification(title, msg, sleeptime):
     nid = NOTIFYICONDATA()
     nid.cbSize = ctypes.sizeof(NOTIFYICONDATA)
     nid.uFlags = NIF_INFO
@@ -39,7 +39,7 @@ def show_notification(title, msg, time):
     # time.sleep(1)
     # time.sleep(5)
 
-    time.sleep(time)
+    time.sleep(sleeptime)
 
 # show_notification("Notification Title", "This is a desktop notification!", 5) # debug
 
