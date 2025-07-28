@@ -23,6 +23,7 @@ NIF_INFO = 0x00000010
 NIIF_INFO = 0x00000001
 NIM_ADD = 0x00000000
 NIM_MODIFY = 0x00000001
+NIM_DELETE = 0x00000002
 
 def show_notification(title, msg, sleeptime):
     nid = NOTIFYICONDATA()
@@ -36,12 +37,8 @@ def show_notification(title, msg, sleeptime):
     shell32.Shell_NotifyIconA(NIM_ADD, ctypes.byref(nid))
     shell32.Shell_NotifyIconA(NIM_MODIFY, ctypes.byref(nid))
 
-    # time.sleep(1)
-    # time.sleep(5)
-
     time.sleep(sleeptime)
-
-# show_notification("Notification Title", "This is a desktop notification!", 5) # debug
+    shell32.Shell_NotifyIconA(NIM_DELETE, ctypes.byref(nid))
 
 if __name__ == "__main__":
     if len(sys.argv) != 4:
@@ -50,5 +47,7 @@ if __name__ == "__main__":
     
     title = sys.argv[1]
     message = sys.argv[2]
-    time = sys.argv[3]
-    show_notification(title, message, time)
+    sleeptime = float(sys.argv[3])
+    if sleeptime > 8:
+        print("The notification will be auto deleted in 8 seconds, engaging the thread for 10s")
+    show_notification(title, message, sleeptime)
